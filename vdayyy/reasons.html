@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reasons I Love You 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hearts-float {
+            position: fixed;
+            font-size: 30px;
+            animation: floatHeart 15s infinite;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            letter-spacing: -3px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease 0.3s both;
+        }
+
+        .counter-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px;
+            padding: 60px 40px;
+            margin: 40px 0;
+            text-align: center;
+            animation: scaleIn 0.8s ease 0.5s both;
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .counter-label {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .counter-display {
+            font-size: clamp(5rem, 15vw, 10rem);
+            font-weight: 900;
+            color: #fff;
+            margin: 30px 0;
+            text-shadow: 0 15px 50px rgba(0,0,0,0.4);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .reason-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px;
+            margin: 50px 0;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+            animation: slideIn 0.6s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .reason-number {
+            font-size: 1.3rem;
+            color: #FF416C;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .reason-text {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: #333;
+            line-height: 1.7;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .controls {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background: rgba(255, 255, 255, 0.95);
+            color: #FF416C;
+            border: 3px solid transparent;
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+            background: #fff;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            padding: 25px 60px;
+            font-size: 1.4rem;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .counter-section { padding: 40px 25px; }
+            .reason-card { padding: 35px 25px; min-height: 240px; }
+            .controls { gap: 15px; }
+            button { padding: 18px 40px; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="heartsContainer"></div>
+
+    <div class="content-wrapper">
+        <h1>∞ Reasons</h1>
+        <p class="subtitle">WHY YOU MEAN EVERYTHING TO ME</p>
+
+        <div class="counter-section">
+            <div class="counter-label">There Are</div>
+            <div class="counter-display" id="totalCounter">30</div>
+            <div class="counter-label">Reasons You're Amazing</div>
+        </div>
+
+        <div class="reason-card">
+            <div class="reason-number" id="reasonNumber">Ready to Start?</div>
+            <div class="reason-text" id="reasonText">Click "Next Reason" to discover why you're everything to me 💕</div>
+        </div>
+
+        <div class="controls">
+            <button onclick="previousReason()">← Previous</button>
+            <button onclick="nextReason()">Next Reason →</button>
+        </div>
+
+        <button class="next-btn" onclick="goToNext()">Continue Our Journey →</button>
+    </div>
+
+    <script>
+        const reasons = [
+            "Your smile lights up my entire day, even through a screen",
+            "The way you call me makes my heart skip a beat every single time",
+            "Your shy laugh is the most beautiful sound I've ever heard",
+            "You understand me in ways no one else ever has",
+            "You make the distance feel like nothing with your love",
+            "Your kindness and caring nature inspire me to be better",
+            "The way you support my dreams means everything to me",
+            "You make me laugh even on my toughest days",
+            "Your intelligence and ambition are incredibly attractive",
+            "You accept me for exactly who I am",
+            "The way you say my name melts my heart",
+            "You're my safe place, my comfort, my home",
+            "Your strength and resilience inspire me daily",
+            "You make every conversation feel meaningful and special",
+            "The way you care about the little things about me",
+            "You're my best friend and my greatest love",
+            "Your eyes tell me everything without words",
+            "You believe in me even when I don't believe in myself",
+            "The way you make me feel wanted and cherished",
+            "Your patience with this long distance relationship",
+            "You're always there when I need you, no matter what",
+            "The way you remember small details I tell you",
+            "Your cute reactions to surprises make everything worth it",
+            "You make me want to be the best version of myself",
+            "The future we dream about together fills me with joy",
+            "You're my favorite person to talk to, always",
+            "The way you care about my day and what I'm doing",
+            "You make me feel loved across thousands of miles",
+            "Your beautiful soul shines through in everything you do",
+            "You're simply perfect for me in every single way"
+        ];
+
+        let currentIndex = -1;
+
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'hearts-float';
+                heart.innerHTML = ['💕', '💖', '💗', '❤️', '💝'][Math.floor(Math.random() * 5)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 5 + 10) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+                container.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 15000);
+            }, 800);
+        }
+
+        function updateDisplay() {
+            const reasonCard = document.querySelector('.reason-card');
+            reasonCard.style.animation = 'none';
+            setTimeout(() => {
+                reasonCard.style.animation = 'slideIn 0.6s ease';
+            }, 10);
+
+            if (currentIndex >= 0 && currentIndex < reasons.length) {
+                document.getElementById('reasonNumber').textContent = `Reason #${currentIndex + 1}`;
+                document.getElementById('reasonText').textContent = reasons[currentIndex];
+            } else if (currentIndex === -1) {
+                document.getElementById('reasonNumber').textContent = 'Ready to Start?';
+                document.getElementById('reasonText').textContent = 'Click "Next Reason" to discover why you\'re everything to me 💕';
+            }
+        }
+
+        function nextReason() {
+            if (currentIndex < reasons.length - 1) {
+                currentIndex++;
+                updateDisplay();
+            } else {
+                alert("You've seen all the reasons! But there are infinite more in my heart 💕");
+            }
+        }
+
+        function previousReason() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateDisplay();
+            }
+        }
+
+        function goToNext() {
+            window.location.href = 'message.html';
+        }
+
+        document.getElementById('totalCounter').textContent = reasons.length;
+        createFloatingHearts();
+    </script>
+</body>
+</html>

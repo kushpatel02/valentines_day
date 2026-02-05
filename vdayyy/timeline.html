@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Bitcount Single", system-ui;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+            "slnt" 0,
+            "CRSV" 0.5,
+            "ELSH" 0,
+            "ELXP" 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); */
+            background-color: #ffc2d1;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: sticky;
+            top: 0;
+            /* background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); */
+            background-color: #fb6f92;
+            z-index: 100;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .timeline-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px 100px;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: linear-gradient(180deg, 
+                rgba(255,255,255,0.3) 0%, 
+                rgba(255,255,255,0.8) 50%, 
+                rgba(255,255,255,0.3) 100%);
+            transform: translateX(-50%);
+        }
+
+        .milestone {
+            display: flex;
+            align-items: center;
+            margin: 80px 0;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .milestone:nth-child(1) { animation-delay: 0.2s; }
+        .milestone:nth-child(2) { animation-delay: 0.4s; }
+        .milestone:nth-child(3) { animation-delay: 0.6s; }
+        .milestone:nth-child(4) { animation-delay: 0.8s; }
+        .milestone:nth-child(5) { animation-delay: 1s; }
+        .milestone:nth-child(6) { animation-delay: 1.2s; }
+        .milestone:nth-child(7) { animation-delay: 1.4s; }
+        .milestone:nth-child(8) { animation-delay: 1.6s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .milestone:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .milestone-content {
+            width: 45%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .milestone-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+        }
+
+        .milestone:nth-child(odd) .milestone-content {
+            margin-right: auto;
+            margin-left: 5%;
+        }
+
+        .milestone:nth-child(even) .milestone-content {
+            margin-left: auto;
+            margin-right: 5%;
+        }
+
+        .milestone-icon {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            border: 6px solid #4facfe;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            z-index: 10;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .date {
+            font-size: 1.1rem;
+            color: #4facfe;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-size: 2rem;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .continue-section {
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            margin: 80px auto 0;
+            max-width: 800px;
+            border-radius: 30px;
+        }
+
+        .continue-text {
+            font-size: 2.5rem;
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            margin-bottom: 50px;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        button {
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            color: #4facfe;
+            border: none;
+            padding: 25px 70px;
+            font-size: 1.4rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .timeline-line { left: 50px; }
+            
+            .milestone {
+                flex-direction: row !important;
+            }
+
+            .milestone-content {
+                width: calc(100% - 130px);
+                margin-left: 130px !important;
+                margin-right: 0 !important;
+            }
+
+            .milestone-icon {
+                left: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .milestone-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .milestone-content {
+                padding: 30px 25px;
+            }
+
+            .title { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Our Journey 💕</h1>
+        <p class="subtitle">EVERY MOMENT WITH YOU IS A TREASURE</p>
+    </div>
+
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <!-- MILESTONE 1 - CUSTOMIZE THESE -->
+        <div class="milestone">
+            <div class="milestone-icon"></div>
+            <div class="milestone-content">
+                <div class="date">May 2023</div>
+                <div class="title">Late night chats</div>
+                <div class="description">
+                    Random talks at late night, not knowing you'd become my whole world...
+                </div>
+            </div>
+        </div>
+
+        <!-- MILESTONE 2 -->
+        <div class="milestone">
+            <div class="milestone-icon"></div>
+            <div class="milestone-content">
+                <div class="date">July 2023</div>
+                <div class="title">Eat outs</div>
+                <div class="description">
+                    Shawarma walks and... I knew right then something special was beginning.
+                </div>
+            </div>
+        </div>
+
+        <!-- MILESTONE 3 -->
+        <div class="milestone">
+            <div class="milestone-icon"></div>
+            <div class="milestone-content">
+                <div class="date">Sept 2023</div>
+                <div class="title">Zephyr desperation</div>
+                <div class="description">
+                    Finding you when you left the room 721 to call you back. Your presence made me crave for more when you left. Seeing your beautiful smile light up my screen... that shy laugh of yours is everything to me.
+                </div>
+            </div>
+        </div>
+
+        <!-- MILESTONE 4 -->
+        <div class="milestone">
+            <div class="milestone-icon"></div>
+            <div class="milestone-content">
+                <div class="date">Oct 22 2023</div>
+                <div class="title">Garba Priorization</div>
+                <div class="description">
+                    You vanished during garba time and I got desperate to find you, calling you but you did not receive. Journey to your house was amazing with you besides me. And then you left abruptly and told me to priotize you. I messaged you my feelings and you asked me "kush tu hi hai na msg kare wala?"
+                </div>
+            </div>
+        </div>
+
+        <!-- MILESTONE 5 -->
+        <div class="milestone">
+            <div class="milestone-icon"></div>
+            <div class="milestone-content">
+                <div class="date">Oct 26 2023</div>
+                <div class="title">Misal talks</div>
+                <div class="description">
+                    Planned for a misal date and ended up confessing our feelings for each other. That day changed everything for me, Bubuuu. MY SHY LADY IN ACTION.
+                </div>
+            </div>
+        </div>
+
+        <!-- MILESTONE 6 -->
+        <div class="milestone">
+            <div class="milestone-icon"></div>
+            <div class="milestone-content">
+                <div class="date">Jan 25 2024</div>
+                <div class="title">We Became Official</div>
+                <div class="description">
+                    I gave you a ring and you gave me so much maar. Can't control the emotions obviously.
+                </div>
+            </div>
+        </div>
+
+        <!-- MILESTONE 7 -->
+        <div class="milestone">
+            <div class="milestone-icon"></div>
+            <div class="milestone-content">
+                <div class="date">Aug 2025</div>
+                <div class="title">Planning Our Future</div>
+                <div class="description">
+                    Every conversation about visiting each other, about our dreams together. It's all happening, my Shy Lady.
+                </div>
+            </div>
+        </div>
+
+        <!-- MILESTONE 8 -->
+        <div class="milestone">
+            <div class="milestone-icon"></div>
+            <div class="milestone-content">
+                <div class="date">Feb 14 2025</div>
+                <div class="title">This Valentine's Day</div>
+                <div class="description">
+                    And here we are... ready to celebrate our Valentine's together. This is just the beginning, Bakudiii.
+                </div>
+            </div>
+        </div>
+
+        <div class="continue-section">
+            <p class="continue-text">"And the story continues..." 💕</p>
+            <button onclick="nextPage()">What's Next? →</button>
+        </div>
+    </div>
+
+    <script>
+        function nextPage() {
+            window.location.href = 'message.html';
+        }
+    </script>
+</body>
+</html>

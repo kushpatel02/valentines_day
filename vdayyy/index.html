@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Someone Special ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Fjalla+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Bitcount Single", system-ui;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+            "slnt" 0,
+            "CRSV" 0.5,
+            "ELSH" 0,
+            "ELXP" 0;
+        }
+
+        body {
+            /* font-family: 'Poppins', sans-serif; */
+            min-height: 100vh;
+            /* background: linear-gradient(45deg, #FF6B6B, #FF8E53, #FE6B8B, #FF8E53); */
+            background: #ffafcc;
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        body.dark-mode {
+            background: linear-gradient(45deg, #0f0f0f, #1a0a0a, #0a0a1a, #1a0a0a);
+            background-size: 400% 400%;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: particleFloat 20s infinite;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            /* font-family: 'Playfair Display', serif; */
+            /* font-family: 'Bungee', cursive; */
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            letter-spacing: -2px;
+        }
+
+        body.dark-mode h1 {
+            color: #ff4444;
+            text-shadow: 0 0 40px rgba(255, 68, 68, 0.5);
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            margin-bottom: 60px;
+            letter-spacing: 2px;
+        }
+
+        body.dark-mode .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .message {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        body.dark-mode .message {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .password-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        body.dark-mode .password-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 68, 68, 0.3);
+        }
+
+        label {
+            display: block;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #FF6B6B;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        body.dark-mode input[type="text"] {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ff4444;
+            border: 2px solid rgba(255, 68, 68, 0.3);
+        }
+
+        .hint {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+        }
+
+        .error-message {
+            color: #FFD700;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            font-weight: 600;
+            display: none;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-15px); }
+            75% { transform: translateX(15px); }
+        }
+
+        button {
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            color: #FF6B6B;
+            border: none;
+            padding: 20px 60px;
+            font-size: 1.3rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode button {
+            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+            color: white;
+        }
+
+        .warning-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+
+        .warning-content {
+            text-align: center;
+            padding: 60px 40px;
+            max-width: 500px;
+        }
+
+        .warning-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #ff4444;
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(255, 68, 68, 0.5);
+        }
+
+        .warning-content p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            h1 { letter-spacing: -1px; }
+            .password-box { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="content">
+        <h1>My Bakudiii💕</h1>
+        <p class="subtitle">Something special awaits...</p>
+        
+        <p class="message">
+            Distance means nothing when someone means everything.
+            <br><br>
+            Before we begin, show me you remember our special day...
+        </p>
+
+        <div class="password-box">
+            <label for="password">They say data tells a story, but ours is my favorite dataset. When did our dataset start logging its first value?</label>
+            <input type="text" id="password" placeholder="DD/MM/YYYY" maxlength="10">
+            <p class="hint">💭 The day everything changed...</p>
+            <p class="error-message" id="errorMsg">Not quite right... Try again! 💔</p>
+        </div>
+
+        <button onclick="checkPassword()">Begin Our Journey ✨</button>
+    </div>
+
+    <div class="warning-modal" id="warningModal">
+        <div class="warning-content">
+            <h2>⚠️ Wrong Date!</h2>
+            <p>The universe grows darker without our special day...<br>Remember when we became official 💔</p>
+            <button onclick="closeWarning()">Try Again 💕</button>
+        </div>
+    </div>
+
+    <script>
+        // Create particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 5 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = Math.random() * 10 + 15 + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        function checkPassword() {
+            const input = document.getElementById('password').value.trim();
+            const correctPassword = '25/01/2024';
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (input === correctPassword || input === '25012024') {
+                window.location.href = 'distance.html';
+            } else {
+                document.body.classList.add('dark-mode');
+                document.getElementById('warningModal').style.display = 'flex';
+                errorMsg.style.display = 'block';
+                
+                const inputField = document.getElementById('password');
+                inputField.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    inputField.style.animation = '';
+                }, 500);
+            }
+        }
+
+        function closeWarning() {
+            document.getElementById('warningModal').style.display = 'none';
+        }
+
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message For You 💌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            letter-spacing: -3px;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            letter-spacing: 3px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .letter-section {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 100px 60px;
+            margin: 0;
+        }
+
+        .letter-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .letter-greeting {
+            font-size: 2.5rem;
+            color: #6a11cb;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 40px;
+        }
+
+        .letter-text p {
+            font-size: 1.3rem;
+            color: #444;
+            line-height: 2;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+
+        .signature {
+            text-align: right;
+            font-size: 1.8rem;
+            color: #6a11cb;
+            font-style: italic;
+            margin-top: 60px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .music-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .music-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+        }
+
+        .music-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .spotify-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            padding: 60px 40px;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .spotify-placeholder {
+            background: #1DB954;
+            padding: 60px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            color: white;
+            margin: 30px 0;
+        }
+
+        .lyrics-prompt {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin: 40px 0 25px;
+            font-weight: 300;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            max-width: 500px;
+            padding: 22px;
+            font-size: 1.3rem;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: 600;
+            color: #667eea;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            transform: scale(1.02);
+            box-shadow: 0 15px 50px rgba(255, 255, 255, 0.3);
+        }
+
+        .error-message {
+            color: #FFD700;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: none;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-15px); }
+            75% { transform: translateX(15px); }
+        }
+
+        button {
+            background: #fff;
+            color: #667eea;
+            border: none;
+            padding: 22px 60px;
+            font-size: 1.3rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        }
+
+        .photos-section {
+            background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+            padding: 100px 20px;
+        }
+
+        .photos-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            color: #fff;
+            margin-bottom: 80px;
+            letter-spacing: -2px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .photo-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 4rem;
+        }
+
+        .photo-caption {
+            padding: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .letter-section { padding: 60px 25px; }
+            .letter-text p { font-size: 1.1rem; }
+            .music-section, .photos-section { padding: 60px 20px; }
+            .spotify-box { padding: 40px 25px; }
+            .photo-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>For You 💌</h1>
+        <p class="subtitle">FROM MY HEART TO YOURS, BUBUUU</p>
+    </section>
+
+    <section class="letter-section">
+        <div class="letter-content">
+            <div class="letter-greeting">Dear Neha,</div>
+            
+            <div class="letter-text">
+                <p>
+                    Thank you for being there for me my loveeeeeee. I want you in my life forever and can't stay without you my darlingggg. My shyyyyy ladyy.
+                </p>
+
+                <p>
+                    You made me what I am right now baby. I am so grateful to have you my everythinggg. Your confidence, your understanding, your intelligence, your peronality, your laugh, your attitude, your bossy nature, everythingg makes me fall for you more and more and more meri duniyaaaaa.
+                </p>
+
+                <p>
+                    My gurlfieee, my wifeyyyyy, maari baaydiiii, maari bakudiiiii, my shyyyy ladyy, my diamond, meri jaaaannemannn, my cutieeeee my princessss. I LOVE YOU.
+                </p>
+
+                <p>
+                    I promise to stay with you forever my gurl. I promise to take care of you, I promise to be there for you be it anything, I promise to be your only one. I promise to be how you want me to babyy. US TOGETHER FOREVER. There's nothing that can stop us babygurlll. I can't wait to marry you meri sexyyyyyyyyyyyyy ladyyyy.
+                </p>
+
+                <p>
+                    My crazyyy gurlll, my modelllll, my tastyyyyyy ladyy, my hottieeeee, my sexyyyyyyyy ladyy, my pookieeeee, there's nothing that I don't crave of you babyyyy. I crave you to be with me besides me, I crave you to be mine forever, I crave your hugsssss, I crave your kisses, I CRAVE YOUR PRESENCE MY LADY LOVE.
+                </p>
+
+                <p>
+                    Thank you for choosing someone like me. I won't be an idiot but surely I'll be your playful child who wants your warmth and love foreverrrrrr. I will never fail to baby you my cutieeeeee. I will always be there to love you, to support you, to take care of you, to protect you, to adore you, to respect you and to make you the happiest person and provideeee you with everything in the world.
+                </p>
+
+                <p>
+                    I LOVEEEEEEEEE YOU MY EVERYTHING. CHEERS TO US TOGETHER FOREVER.
+                </p>
+            </div>
+            
+            <div class="signature">
+                With all my love,<br>
+                Your biggest red flag (kush) 💕
+            </div>
+        </div>
+    </section>
+
+    <section class="music-section">
+        <div class="music-title">🎵 A Song for us🎵</div>
+        <p class="music-subtitle">Scan the code and listen to something special</p>
+        
+        <div class="spotify-box">
+            <div class="spotify-placeholder">
+                <img src="IMG_6093.jpg" alt="Spotify Code" style="max-width: 350px; width: 100%";>
+            </div>
+
+            <p class="lyrics-prompt">To continue, enter the hook lyrics from the song 🎶</p>
+            <input type="text" id="lyricsInput" placeholder="Type the lyrics...">
+            <p class="error-message" id="errorMsg">Not quite right... listen again! 🎵</p>
+            <button onclick="checkLyrics()">Verify & Continue</button>
+        </div>
+    </section>
+
+    <!-- <section class="photos-section">
+        <h2 class="photos-title">Our Memories 📸</h2>
+        
+        <div class="photo-grid">
+            <div class="photo-card">
+                <div class="photo-placeholder">📷</div>
+                <div class="photo-caption">
+                    Add your first special photo here<br>
+                    Replace with: &lt;img src="photo1.jpg" style="width:100%; height:350px; object-fit:cover;"&gt;
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-placeholder">📷</div>
+                <div class="photo-caption">
+                    Your second favorite moment together
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-placeholder">📷</div>
+                <div class="photo-caption">
+                    A memory that makes you smile
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <div class="photo-placeholder">📷</div>
+                <div class="photo-caption">
+                    The moment you knew it was special
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <script>
+        function checkLyrics() {
+            const input = document.getElementById('lyricsInput').value.toLowerCase().trim();
+            const correctLyrics = "haule-haule";
+            const errorMsg = document.getElementById('errorMsg');
+
+            if (input.includes('your') || input.includes('lyrics') || input === correctLyrics) {
+                window.location.href = 'question.html';
+            } else {
+                errorMsg.style.display = 'block';
+                document.getElementById('lyricsInput').style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    document.getElementById('lyricsInput').style.animation = '';
+                }, 500);
+            }
+        }
+
+        document.getElementById('lyricsInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkLyrics();
+            }
+        });
+    </script>
+</body>
+</html>
